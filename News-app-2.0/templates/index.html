@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News Summarizer</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    
+    <h1>News Summarizer</h1>
+    <form method="POST" action="/">
+        <label>Select Category:</label>
+        <select name="category">
+            <option value="business">Business</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="health">Health</option>
+            <option value="science">Science</option>
+            <option value="sports">Sports</option>
+            <option value="technology">Technology</option>
+        </select>
+        <button type="submit">Fetch & Summarize News</button>
+    </form>
+    
+    <div class="news-summaries">
+        {% for article in summaries %}
+            <div class="article">
+                <h2>{{ article.title }}</h2>
+                <p>{{ article.summary }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="/?page={{ page - 1 }}{% if category %}&category={{ category }}{% endif %}">Previous</a>
+        {% endif %}
+        {% if page < total_pages %}
+            <a href="/?page={{ page + 1 }}{% if category %}&category={{ category }}{% endif %}">Next</a>
+        {% endif %}
+    </div>
+    
+</body>
+</html>
+
