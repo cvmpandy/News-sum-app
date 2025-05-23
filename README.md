@@ -23,12 +23,13 @@
 ##  Project Structure
 
 ```
-News-sum-app2.0/
+News-sum-app-2.0/
 ├── app.py                     # Flask backend application
 ├── templates/
 │   └── index.html            # Frontend template
 ├── static/
-│   ├── style.css             # Custom styles
+│   ├── script.js             
+    ├── style.css             # Custom styles
 ├── requirements.txt          # List of dependencies
 News_Summarization_App.ipynb  # Jupyter notebook for experimentation
 ```
